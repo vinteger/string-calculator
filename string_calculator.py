@@ -1,14 +1,24 @@
+import re
+
+
 class StringCalculator:
+
     def add(self, numbers):
-        sum = 0
+
+        total = 0
+
         if not numbers:
             return 0
 
-        str_arr = numbers.split(",")
-        for number in str_arr:
-            another_str = number.split("\n")
-            for number in another_str:
+        has_delimiter = re.split("^//(.*)\n", numbers)
 
-                sum += int(number)
+        delimiter = ','
+        if len(has_delimiter) > 1:
+            _, delimiter, numbers = has_delimiter
 
-        return sum
+        for line in numbers.split("\n"):
+
+            for delimited in line.split(delimiter):
+                total += int(delimited)
+
+        return total

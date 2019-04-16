@@ -24,3 +24,7 @@ class StringCalculatorTest(unittest.TestCase):
 
     def test_1_newline_2_3_returns_6(self):
         self.assertEqual(6, self.string_calculator.add("1\n2,3"))
+
+    def test_can_have_semicolon_delimiter(self):
+        self.assertEqual(3, self.string_calculator.add("//;\n1;2"))
+        self.assertEqual(3, self.string_calculator.add("//derp\n1derp2"))
