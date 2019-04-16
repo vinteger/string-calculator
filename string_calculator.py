@@ -19,6 +19,9 @@ class StringCalculator:
         for line in numbers.split("\n"):
 
             for delimited in line.split(delimiter):
-                total += int(delimited)
+                value = int(delimited)
+                if value < 0:
+                    raise ValueError("negatives not allowed: "+delimited)
+                total += value
 
         return total
