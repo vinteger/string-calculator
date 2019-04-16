@@ -32,3 +32,5 @@ class StringCalculatorTest(unittest.TestCase):
     def test_can_not_have_negative_numbers(self):
         self.assertRaisesRegex(ValueError, "negatives not allowed: -3", self.string_calculator.add, "1\n2,-3")
 
+    def test_show_all_negatives_in_exception(self):
+        self.assertRaisesRegex(ValueError, "negatives not allowed: -2, -3", self.string_calculator.add, "1\n-2,-3")
