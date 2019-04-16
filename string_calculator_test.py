@@ -42,3 +42,6 @@ class StringCalculatorTest(unittest.TestCase):
 
     def test_can_handle_multiple_delimiters(self):
         self.assertEqual(6, self.string_calculator.add("//[*][%]\n1*2%3"))
+
+    def test_can_handle_multiple_delimiters_with_longer_characters(self):
+        self.assertEqual(6, self.string_calculator.add("//[**][%%%]\n1**2%%%3"))
